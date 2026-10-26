@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USMLE Step 2 CK — Clinical Reasoning & Knowledge Base</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --primary: #1e40af;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #0284c7;
+      --success: #15803d;
+      --success-bg: #f0fdf4;
+      --success-border: #bbf7d0;
+      --danger: #b91c1c;
+      --danger-bg: #fef2f2;
+      --danger-border: #fecaca;
+      --warning: #b45309;
+      --warning-bg: #fffbeb;
+      --warning-border: #fde68a;
+      --radius: 10px;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 15px;
+      padding-bottom: 60px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    .header-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-badge {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 7px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text);
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      background: var(--surface-alt);
+      border-color: var(--text-light);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: #1e3a8a;
+      border-color: #1e3a8a;
+    }
+
+    .btn-sm {
+      padding: 4px 9px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+
+    .nav-tabs {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      padding: 11px 16px;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary);
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    .tab-section {
+      display: none;
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
+    /* Common Layout Elements */
+    .section-header {
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border-radius: 5px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
+    }
+
+    .badge-warn {
+      background: var(--warning-bg);
+      color: var(--warning);
+      border-color: var(--warning-border);
+    }
+
+    .badge-danger {
+      background: var(--danger-bg);
+      color: var(--danger);
+      border-color: var(--danger-border);
+    }
+
+    .badge-success {
+      background: var(--success-bg);
+      color: var(--success);
+      border-color: var(--success-border);
+    }
+
+    /* Tab 1: Algorithm Styles */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .algo-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .algo-step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .algo-step-title {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--primary);
+    }
+
+    .algo-step-body {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .algo-step-body ul {
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .emergency-box {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      border-left: 4px solid var(--danger);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .emergency-box h3 {
+      color: var(--danger);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .emergency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .emergency-item {
+      background: #fff;
+      border: 1px solid var(--danger-border);
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 13.5px;
+    }
+
+    .emergency-item strong {
+      display: block;
+      color: var(--danger);
+      margin-bottom: 4px;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-strong);
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .select-input {
+      padding: 8px 12px;
+      border: 1px solid var(--border-strong);
+      border-radius: 7px;
+      font-size: 14px;
+      background: var(--surface);
+    }
+
+    .specialty-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      padding: 5px 11px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text-muted);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .pill-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .pill-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Pathology Cards */
+    .pathology-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .pathology-card.learned {
+      border-left: 4px solid var(--success);
+    }
+
+    .pathology-header {
+      padding: 14px 18px;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pathology-title-group h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .pathology-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .pathology-body {
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .info-block {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 13px;
+      font-size: 13.5px;
+    }
+
+    .info-block-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .info-block.highlight-step {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+    }
+
+    .info-block.highlight-step .info-block-label {
+      color: var(--primary);
+    }
+
+    .info-block.highlight-trap {
+      background: var(--warning-bg);
+      border-color: var(--warning-border);
+    }
+
+    .info-block.highlight-trap .info-block-label {
+      color: var(--warning);
+    }
+
+    /* Comparison Tables */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      margin: 12px 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    table.comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+    }
+
+    table.comp-table th,
+    table.comp-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    table.comp-table th:last-child,
+    table.comp-table td:last-child {
+      border-right: none;
+    }
+
+    table.comp-table th {
+      background: var(--surface-alt);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    table.comp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    /* QBank Styles */
+    .q-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .q-stem {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: var(--text);
+      background: var(--surface-alt);
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .q-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .q-option {
+      text-align: left;
+      padding: 11px 14px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .q-option:hover:not(:disabled) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+    }
+
+    .q-option:disabled {
+      cursor: default;
+    }
+
+    .q-option.correct {
+      background: var(--success-bg);
+      border-color: var(--success);
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    .q-option.wrong {
+      background: var(--danger-bg);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    .q-explanation {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 8px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .q-explanation h4 {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .distractor-list {
+      margin: 10px 0;
+      padding-left: 18px;
+    }
+
+    .distractor-list li {
+      margin-bottom: 5px;
+    }
+
+    /* Modal Styles */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+      padding: 16px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--surface);
+      border-radius: var(--radius);
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-body {
+      padding: 18px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    .code-area {
+      width: 100%;
+      min-height: 180px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      padding: 12px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #0f172a;
+      color: #f8fafc;
+      margin: 8px 0 12px;
+      resize: vertical;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0f172a;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      z-index: 300;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 640px) {
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .pathology-body {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-top">
+      <div class="brand">
+        <span class="brand-badge">STEP 2 CK</span>
+        <h1>Clinical Reasoning & Knowledge Base</h1>
+      </div>
+      <div class="header-actions">
+        <span class="stat-pill" id="globalStatsPill">Изучено: 0 | Вопросы: 0/0</span>
+        <button class="btn btn-primary" onclick="openDataModal()">+ Добавить данные / JSON шаблоны</button>
+      </div>
+    </div>
+    <nav class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('algo', this)">1. Алгоритм мышления</button>
+      <button class="tab-btn" onclick="switchTab('pathologies', this)">2. Специальности и патологии</button>
+      <button class="tab-btn" onclick="switchTab('comparisons', this)">3. Сравнение диагнозов</button>
+      <button class="tab-btn" onclick="switchTab('qbank', this)">4. Практика вопросов (QBank)</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ВКЛАДКА 1: АЛГОРИТМ МЫШЛЕНИЯ -->
+    <section id="tab-algo" class="tab-section active">
+      <div class="section-header">
+        <h2>Универсальный алгоритм решения клинических задач USMLE Step 2 CK</h2>
+        <p>Пошаговая структура мышления при чтении каждой виньетки: от оценки ABC и стабильности до выбора Next Best Step.</p>
+      </div>
+
+      <div id="algoStepsContainer" class="step-list"></div>
+
+      <div class="emergency-box">
+        <h3>🚨 Правила неотложных состояний (Emergency Rules — Когда НЕ нужно ждать КТ/УЗИ)</h3>
+        <div id="emergencyRulesContainer" class="emergency-grid"></div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom: 12px; font-size: 17px;">🎯 Различия между формулировками вопросов USMLE Step 2 CK</h3>
+        <div class="table-responsive">
+          <table class="comp-table" id="questionTypesTable"></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ВКЛАДКА 2: СПЕЦИАЛЬНОСТИ И ПАТОЛОГИИ -->
+    <section id="tab-pathologies" class="tab-section">
+      <div class="section-header">
+        <h2>Специальности и высокоприоритетные патологии</h2>
+        <p>Компактные карточки для распознавания картины, выбора тестов (Initial vs Confirmatory) и избегания экзаменационных ловушек.</p>
+      </div>
+
+      <div class="filter-bar">
+        <div class="specialty-pills" id="specialtyPills"></div>
+        <div class="search-row">
+          <input type="text" id="pathologySearch" class="search-input" placeholder="Поиск по диагнозу, симптомам (RUQ pain, dysphagia, ascites)..." oninput="renderPathologies()">
+          <select id="pathologyStatusFilter" class="select-input" onchange="renderPathologies()">
+            <option value="all">Все карточки</option>
+            <option value="unlearned">Неизученные</option>
+            <option value="learned">Изученные</option>
+            <option value="favorite">★ Избранные</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="pathologiesContainer"></div>
+    </section>
+
+    <!-- ВКЛАДКА 3: СРАВНЕНИЕ ДИАГНОЗОВ -->
+    <section id="tab-comparisons" class="tab-section">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <h2>Дифференциально-диагностические таблицы</h2>
+          <p>Сравнение похожих диагнозов, решающие признаки (Clinchers) и типичные ошибки на экзамене.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openDataModal('comparison')">+ Добавить сравнение</button>
+      </div>
+
+      <div class="filter-bar">
+        <div class="search-row">
+          <input type="text" id="comparisonSearch" class="search-input" placeholder="Поиск по сравниваемым заболеваниям или признакам..." oninput="renderComparisons()">
+        </div>
+      </div>
+
+      <div id="comparisonsContainer"></div>
+    </section>
+
+    <!-- ВКЛАДКА 4: ПРАКТИКА ВОПРОСОВ -->
+    <section id="tab-qbank" class="tab-section">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <h2>Практика клинических вопросов (QBank)</h2>
+          <p>Тренировка распознавания диагноза, интерпретации анализов, выбора обследования и Next Best Step.</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn" onclick="resetQBankProgress()">Сбросить ответы</button>
+          <button class="btn btn-primary" onclick="openDataModal('question')">+ Добавить вопрос</button>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <div class="search-row">
+          <select id="qCategoryFilter" class="select-input" onchange="renderQuestions()">
+            <option value="all">Все типы вопросов (All Categories)</option>
+            <option value="Diagnosis">Diagnosis (Постановка диагноза)</option>
+            <option value="Lab Interpretation">Lab Interpretation (Интерпретация анализов)</option>
+            <option value="Best Test">Best Test (Выбор Initial / Confirmatory теста)</option>
+            <option value="Next Best Step">Next Best Step (Следующий шаг в ведении)</option>
+          </select>
+          <select id="qStatusFilter" class="select-input" onchange="renderQuestions()">
+            <option value="all">Все вопросы</option>
+            <option value="unanswered">Нерешенные</option>
+            <option value="incorrect">С ошибкой</option>
+            <option value="correct">Решенные верно</option>
+          </select>
+          <input type="text" id="qSearchInput" class="search-input" placeholder="Поиск по тексту вопроса или теме..." oninput="renderQuestions()">
+        </div>
+      </div>
+
+      <div id="questionsContainer"></div>
+    </section>
+  </main>
+
+  <!-- МОДАЛЬНОЕ ОКНО: ШАБЛОНЫ И ДОБАВЛЕНИЕ ДАННЫХ -->
+  <div class="modal-backdrop" id="dataModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 style="font-size:17px;">Управление базой знаний и шаблоны JSON</h3>
+        <button class="btn btn-sm" onclick="closeDataModal()">✕ Закрыть</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom:12px; color:var(--text-muted);">
+          Вы можете легко расширять базу двумя способами: вставить JSON-объект прямо здесь (он сохранится в <code>localStorage</code> браузера) или отправить шаблон в чат для генерации новых тем и вставить готовый JSON.
+        </p>
+
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+          <button class="btn btn-sm" onclick="loadTemplate('pathology')">Шаблон: Патология (Pathology)</button>
+          <button class="btn btn-sm" onclick="loadTemplate('comparison')">Шаблон: Сравнение (Comparison)</button>
+          <button class="btn btn-sm" onclick="loadTemplate('question')">Шаблон: Вопрос (Question)</button>
+          <button class="btn btn-sm" onclick="copyCurrentTextarea()">📋 Скопировать JSON из поля</button>
+        </div>
+
+        <label style="font-weight:600; font-size:13px; display:block; margin-bottom:4px;">Тип добавляемой записи:</label>
+        <select id="jsonTargetType" class="select-input" style="margin-bottom:8px; width:100%;" onchange="loadTemplate(this.value)">
+          <option value="pathology">Патология (в раздел Специальности и патологии)</option>
+          <option value="comparison">Сравнительная таблица (в раздел Сравнение диагнозов)</option>
+          <option value="question">Вопрос (в раздел Практика вопросов)</option>
+        </select>
+
+        <textarea id="jsonInputArea" class="code-area" spellcheck="false"></textarea>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-top:1px solid var(--border); padding-top:12px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="addCustomJsonEntry()">+ Добавить запись в базу</button>
+            <button class="btn" onclick="exportFullDatabase()">⬇ Экспорт всей базы (JSON)</button>
+          </div>
+          <button class="btn" style="color:var(--danger); border-color:var(--danger-border);" onclick="clearCustomAdditions()">Сбросить добавленные вручную записи</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toastMsg"></div>
+
+  <script>
+    /* =========================================================================
+       1. СТРУКТУРИРОВАННАЯ БАЗА ЗНАНИЙ (ОТДЕЛЬНО ОТ ИНТЕРФЕЙСА)
+       Чтобы добавить новые данные напрямую в код, просто добавьте объект
+       в массив pathologies, comparisons или questions ниже.
+       ========================================================================= */
+    const DEFAULT_DATA = {
+      specialties: [
+        "Gastroenterology & Hepatology",
+        "Cardiology",
+        "Pulmonology",
+        "Infectious Disease",
+        "Nephrology",
+        "Neurology",
+        "Surgery",
+        "OB/GYN",
+        "Pediatrics",
+        "Psychiatry"
+      ],
+
+      algorithmSteps: [
+        {
+          step: "Шаг 1. Стабильность пациента (Hemodynamic Stability & ABCs)",
+          tag: "Первые 5 секунд",
+          content: "Посмотрите на витальные показатели (BP, HR, RR, SpO2, Temp) и ментальный статус. Есть ли гипотензия (SBP < 90), тахикардия, гипоксия, спутанность сознания или перитонит?",
+          bullets: [
+            "Нестабильный пациент → экстренная стабилизация (Airway, IV fluids, O2, экстренная операция/процедура) опережает любую сложную диагностику (КТ).",
+            "Стабильный пациент → переходим к таргетному сбору анамнеза и выбору Best Initial Test."
+          ]
+        },
+        {
+          step: "Шаг 2. Клинический синдром (Problem Representation)",
+          tag: "Перевод симптомов",
+          content: "Сформулируйте суть случая в одном предложении: Возраст/пол + факторы риска + темп развития (острый/хронический) + ведущий синдром.",
+          bullets: [
+            "Пример: «Пожилой пациент с фибрилляцией предсердий + внезапная жесточайшая боль в животе, не соответствующая данным осмотра (pain out of proportion)» → Синдром острой мезентериальной ишемии."
+          ]
+        },
+        {
+          step: "Шаг 3. Дифференциальный диагноз (Top 2–3 Hypotheses)",
+          tag: "Генерация гипотез",
+          content: "Сгруппируйте 2–3 наиболее вероятных диагноза по локализации и механизму (например, для RUQ pain: Biliary colic vs Acute cholecystitis vs Acute cholangitis)."
+        },
+        {
+          step: "Шаг 4. Решающие признаки (Discriminating Features & Red Flags)",
+          tag: "Отсев дистракторов",
+          content: "Найдите в условии ключевой триггер или «красный флаг», который разводит похожие диагнозы.",
+          bullets: [
+            "Есть ли лихорадка и лейкоцитоз? (Отличает Cholecystitis от Biliary colic).",
+            "Есть ли желтуха и повышение билирубина/ALP? (Указывает на обструкцию CBD — Choledocholithiasis / Cholangitis).",
+            "Есть ли дисфагия сразу на твердую И жидкую пищу? (Моторное нарушение, например Achalasia, в отличие от механической стриктуры/рака)."
+          ]
+        },
+        {
+          step: "Шаг 5. Необходимые тесты (Initial vs Confirmatory Workup)",
+          tag: "Выбор обследования",
+          content: "Определите, что именно спрашивает вопрос: быстрый скрининговый тест у постели больного (Initial) или золотой стандарт (Confirmatory)."
+        },
+        {
+          step: "Шаг 6. Интерпретация данных (Lab & Imaging Pattern)",
+          tag: "Анализ паттерна",
+          content: "Оцените лабораторный профиль комплексно: Холестатический (↑ ALP, ↑ Bilirubin) vs Гепатоцеллюлярный (↑↑ AST/ALT); SAAG ≥ 1.1 (портальная гипертензия) vs < 1.1; PMN ≥ 250/mm³ в асцитической жидкости (SBP)."
+        },
+        {
+          step: "Шаг 7. Следующий шаг (Next Best Step in Management)",
+          tag: "Финальное решение",
+          content: "Если диагноз еще не подтвержден, но требуется базовое действие — выбираем Initial Test или базовую ресусцитацию (NPO, IV fluids). Если диагноз уже очевиден из условия или тест уже сделан — переходим к лечению (Treatment)."
+        }
+      ],
+
+      emergencyRules: [
+        {
+          title: "Perforated Viscera / Peritonitis (Free Air under Diaphragm)",
+          rule: "При наличии ригидности брюшной стенки (rebound tenderness, guarding) и свободного воздуха на рентгене — НЕ делать КТ и бариевые исследования. Next Best Step: NPO, IV fluids, broad-spectrum antibiotics и экстренная лапаротомия (Emergency exploratory laparotomy)."
+        },
+        {
+          title: "Massive Upper GI Bleed + Hemodynamic Instability",
+          rule: "Сначала 2 large-bore IV lines + инфузия кристаллоидов (и защита дыхательных путей при рвоте кровью / энцефалопатии). ЭГДС (EGD) проводится только после первичной гемодинамической стабилизации."
+        },
+        {
+          title: "Acute Cholangitis (Charcot Triad / Reynolds Pentad)",
+          rule: "Высокая летальность от билиарного сепсиса. Немедленно: IV fluids + IV broad-spectrum antibiotics, затем срочная декомпрессия желчных путей через ERCP (не холецистэктомия на высоте сепсиса!)."
+        },
+        {
+          title: "Acute Mesenteric Ischemia + Peritoneal Signs",
+          rule: "Если у пациента с острой мезентериальной ишемией уже есть клиника инфаркта кишки (перитонит, свободный воздух, нестабильность) — сразу экстренная лапаротомия без потери времени на КТ-ангиографию."
+        }
+      ],
+
+      questionTypes: [
+        {
+          type: "Most Likely Diagnosis",
+          meaning: "Какой диагноз объясняет всю клиническую картину?",
+          strategy: "Синтезируйте анамнез, факторы риска и решающий признак (Clincher). Не выбирайте осложнение вместо основного диагноза, если спрашивают исходную причину."
+        },
+        {
+          type: "Best Initial Test",
+          meaning: "Какой тест нужно назначить ПЕРВЫМ?",
+          strategy: "Обычно неинвазивный, быстрый и чувствительный метод (например, RUQ Ultrasound при боли в правом подреберье, Barium swallow при ахалазии, Upright CXR при подозрении на перфорацию)."
+        },
+        {
+          type: "Most Accurate / Confirmatory Test",
+          meaning: "Золотой стандарт (Gold Standard), дающий окончательный диагноз.",
+          strategy: "Даже если он инвазивный или дорогой: Esophageal manometry для ахалазии, CT angiography для мезентериальной ишемии, Water-soluble contrast (Gastrografin) esophagram для синдрома Бурхаве."
+        },
+        {
+          type: "Next Best Step in Management",
+          meaning: "Что врач должен сделать прямо сейчас в данной точке сценария?",
+          strategy: "Самый частый вопрос Step 2 CK! Зависит от того, что УЖЕ сделано в условии. Если пациент нестабилен → реанимация (IV fluids). Если диагноз не ясен → Best Initial Test. Если диагноз уже подтвержден в условии → специфическое лечение."
+        },
+        {
+          type: "Definitive Treatment",
+          meaning: "Радикальное лечение, устраняющее причину заболевания.",
+          strategy: "Например, Laparoscopic cholecystectomy при остром холецистите (после стартовой инфузии и антибиотиков) или Pneumatic dilation / Heller myotomy при ахалазии."
+        }
+      ],
+
+      pathologies: [
+        {
+          id: "gi-acute-cholecystitis",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Acute Calculous Cholecystitis",
+          presentation: "Постоянная боль в RUQ (> 6 часов), часто после жирной пищи, иррадиирует в правую лопатку (phrenic nerve), сопровождается лихорадкой, тошнотой/рвотой и положительным симптомом Мерфи (inspiratory arrest on deep RUQ palpation).",
+          mechanism: "Длительная обструкция пузырного протока (cystic duct) камнем → повышение внутрипросветного давления, венозный стаз, ишемия стенки желчного пузыря и вторичное бактериальное воспаление (E. coli, Klebsiella, Enterococcus).",
+          diagnostics: "• Labs: Лейкоцитоз (↑ WBC). Билирубин и ALP обычно в норме (так как общий желчный проток — CBD — свободен).\n• Best Initial Test: RUQ Ultrasound (утолщение стенки > 4 мм, перихолецистическая жидкость, сонографический симптом Мерфи).\n• Confirmatory Test (если УЗИ неоднозначно): HIDA scan (cholescintigraphy) — отсутствие визуализации желчного пузыря.",
+          nextBestStep: "При подозрении: RUQ Ultrasound. Если диагноз уже установлен по УЗИ: госпитализация, NPO, IV fluids, обезболивание и парентеральные антибиотики (например, Ceftriaxone + Metronidazole).",
+          treatment: "Ранняя лапароскопическая холецистэктомия (Laparoscopic cholecystectomy) в течение 24–72 часов. При крайне высоком операционном риске у нестабильных пациентов — percutaneous cholecystostomy.",
+          complications: "Гангрена и перфорация желчного пузыря, эмфизематозный холецистит (у диабетиков, газ в стенке за счет Clostridium), желчнокаменная кишечная непроходимость (Gallstone ileus — воздух в билиарном дереве + обструкция подвздошной кишки).",
+          examTraps: "Ловушка 1: Выбрать HIDA scan как ПЕРВЫЙ тест вместо УЗИ.\nЛовушка 2: Перепутать с Biliary colic (при колике боль длится < 4–6 часов, нет лихорадки, нет лейкоцитоза и нормальная стенка на УЗИ)."
+        },
+        {
+          id: "gi-acute-cholangitis",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Acute Bacterial Cholangitis",
+          presentation: "Триада Шарко (Charcot triad): Fever + Jaundice + RUQ pain. В тяжелых случаях — Пентада Рейнольдса (Reynolds pentad): триада Шарко + Hypotension (септический шок) + Altered mental status.",
+          mechanism: "Обструкция общего желчного протока (CBD), чаще всего камнем (choledocholithiasis) или стриктурой/опухолью → стаз желчи и восходящая бактериальная инфекция (E. coli, Klebsiella, Enterobacter).",
+          diagnostics: "• Labs: Выраженный лейкоцитоз, холестатический профиль (↑↑ Direct Bilirubin, ↑↑ ALP, ↑ GGT), возможно умеренное повышение AST/ALT.\n• Best Initial Test: RUQ Ultrasound (показывает дилатацию CBD > 6–8 мм и билиарного дерева).\n• Diagnostic & Therapeutic Gold Standard: ERCP.",
+          nextBestStep: "Экстренная стабилизация (IV fluids) + немедленные антибиотики широкого спектра (например, Piperacillin-tazobactam) + срочная билиарная декомпрессия через ERCP.",
+          treatment: "ERCP со сфинктеротомией и извлечением камня / стентированием. Плановая холецистэктомия выполняется позже, после купирования сепсиса.",
+          complications: "Грамотрицательный билиарный сепсис, полиорганная недостаточность, абсцессы печени.",
+          examTraps: "Главная ошибка на экзамене — отправить нестабильного пациента с холангитом сразу на открытую холецистэктомию вместо малоинвазивной декомпрессии через ERCP."
+        },
+        {
+          id: "gi-acute-pancreatitis",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Acute Pancreatitis",
+          presentation: "Острая постоянная боль в эпигастрии, опоясывающая и иррадиирующая в спину (radiating to the back), уменьшается при наклоне вперед, сопровождается тошнотой и рвотой. Основные причины: Gallstones (40%) и Alcohol (30%).",
+          mechanism: "Преждевременная внутриацинарная активация трипсиногена в трипсин → аутодигестия ткани поджелудочной железы, некроз перипанкреатического жира (омыление с потреблением кальция → гипокальциемия) и системный капиллярный лик.",
+          diagnostics: "• Критерии диагноза (нужно ≥ 2 из 3): 1) Типичная эпигастральная боль; 2) Lipase или Amylase > 3× ULN (липаза более специфична); 3) Характерные изменения на КТ/УЗИ.\n• RUQ Ultrasound показан всем пациентам на старте для поиска желчных камней (biliary etiology).\n• ALT > 150 U/L высокоспецифичен для билиарного панкреатита.",
+          nextBestStep: "Если есть 2 клинико-лабораторных критерия (боль + липаза > 3× нормы) — НЕ нужно делать КТ живота на старте! Next Best Step: агрессивная внутривенная гидратация (Lactated Ringer's), аналгезия и раннее энтеральное питание по мере переносимости.",
+          treatment: "Поддерживающая терапия (IV fluids, pain control, antiemetics). При билиарном панкреатите — холецистэктомия в ту же госпитализацию. При сопутствующем холангите — срочная ERCP.",
+          complications: "Ранние: ARDS (разрушение сурфактанта фосфолипазой), преренальное ОПП, гипокальциемия.\nПоздние (> 4 недель): Pancreatic pseudocyst (стенка из грануляционной/фиброзной ткани без эпителия), Walled-off necrosis.",
+          examTraps: "Ловушка 1: Назначать КТ живота с контрастом в первые часы при классической картине (КТ делают только при неясном диагнозе или отсутствии улучшения через 48–72 ч).\nЛовушка 2: Назначать профилактические антибиотики при стерильном некрозе."
+        },
+        {
+          id: "gi-boerhaave-mallory",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Boerhaave Syndrome (Transmural Esophageal Perforation)",
+          presentation: "Многократная форсированная рвота (часто после алкогольного эксцесса или при булимии), за которой следует внезапная разрывающая боль за грудиной/в эпигастрии, одышка, подкожная эмфизема (crepitus на шее) и симптом Хаммана (хруст синхронно с сердцебиением).",
+          mechanism: "Резкий скачок внутрипищеводного давления при закрытом верхнем пищеводном сфинктере → трансмуральный (на всю толщу) разрыв дистального отдела пищевода (обычно левая заднебоковая стенка) → выход желудочного содержимого в средостение → химический и бактериальный медиастинит.",
+          diagnostics: "• Best Initial Test: Chest X-ray (расширение средостения, пневмомедиастинум, левосторонний плевральный выпот, пневмоторакс).\n• Асцитическая/плевральная жидкость: высокий уровень амилазы (слюнная) и низкий pH < 6.0.\n• Confirmatory Test: Esophagram с водорастворимым контрастом (Water-soluble contrast / Gastrografin).",
+          nextBestStep: "NPO, IV fluids, IV broad-spectrum antibiotics + подтверждение перфорации через КТ грудной клетки или эзофагографию с водорастворимым контрастом (Gastrografin).",
+          treatment: "Экстренная хирургическая ревизия, дебридмент средостения и ушивание дефекта пищевода (в первые 24 часа).",
+          complications: "Септический шок, некротизирующий медиастинит, эмпиема плевры.",
+          examTraps: "Категорически НЕЛЬЗЯ использовать барий (Barium swallow) как первый контраст при подозрении на перфорацию пищевода, так как барий вызывает тяжелейший воспалительный медиастинит! Также не делайте ЭГДС первой линией (инсуффляция воздуха расширит разрыв)."
+        },
+        {
+          id: "gi-pud-perforation",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Peptic Ulcer Disease (PUD) & Acute Perforation",
+          presentation: "Хроническая эпигастральная боль (Duodenal ulcer — уменьшается после еды; Gastric ulcer — усиливается после еды, сопряжена с потерей веса) на фоне приема NSAIDs или H. pylori.\nПри перфорации: внезапная кинжальная боль в животе, доскообразный живот (rigid abdomen, rebound tenderness), боль в плече (раздражение диафрагмального нерва).",
+          mechanism: "Разрушение защитного слизисто-бикарбонатного барьера (НПВС блокируют синтез простагландинов; H. pylori повреждает слизистую).\nПередняя стенка луковицы ДПК → перфорация и свободный воздух; Задняя стенка ДПК → кровотечение из Gastroduodenal artery или острый панкреатит.",
+          diagnostics: "• При неосложненной диспепсии у молодых (< 60 лет без Red Flags): Test-and-treat на H. pylori (Urea breath test или Stool antigen).\n• При наличии Alarm symptoms (дисфагия, анемия, потеря веса, возраст ≥ 60): EGD с биопсией.\n• При подозрении на перфорацию (Best Initial Test): Upright Chest X-ray / Abdominal X-ray (свободный газ под куполом диафрагмы — pneumoperitoneum).",
+          nextBestStep: "При перфорации со свободным воздухом и перитонитом: NPO, назогастральная декомпрессия, IV fluids, IV antibiotics, IV PPI и экстренная операция (Graham patch repair).",
+          treatment: "Эрадикация H. pylori (Quadruple therapy: PPI + Bismuth + Tetracycline + Metronidazole или Clarithromycin triple therapy при низкой резистентности) + отмена НПВС.",
+          complications: "Кровотечение (задняя стенка ДПК — Gastroduodenal artery; малая кривизна желудка — Left gastric artery), перфорация (передняя стенка ДПК), пилоростеноз (Gastric outlet obstruction — рвота старой пищей, суккуссия, гипохлоремический гипокалиемический метаболический алкалоз).",
+          examTraps: "Не путайте сосуды при осложнениях язвы ДПК: Posterior duodenal ulcer кровит из Gastroduodenal artery; Anterior duodenal ulcer дает свободную перфорацию в брюшную полость."
+        },
+        {
+          id: "gi-mesenteric-ischemia",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Acute Mesenteric Ischemia",
+          presentation: "Внезапная жесточайшая боль в животе, НЕ соответствующая скудным данным физикального осмотра («severe abdominal pain out of proportion to physical exam»), у пациента с фибрилляцией предсердий, недавним ИМ, сердечной недостаточностью или атеросклерозом.",
+          mechanism: "Острая окклюзия верхней брыжеечной артерии (SMA): артериальная эмболия из левых отделов сердца (50%), артериальный тромбоз на фоне атеросклероза (25%), неокклюзионная ишемия при шоке/вазопрессорах (20%) или мезентериальный венозный тромбоз.",
+          diagnostics: "• Labs: Выраженный лейкоцитоз, гемоконцентрация, метаболический ацидоз с высоким анионным интервалом (↑↑ Lactate), ↑ Amylase/LDH.\n• Confirmatory Test (у гемодинамически стабильных без перитонита): CT Angiography (CTA) живота (предпочтительнее обычной КТ).",
+          nextBestStep: "Если нет перитонита → срочная CT Angiography (CTA) + инфузионная терапия, антибиотики широкого спектра и системная антикоагуляция (Unfractionated heparin).\nЕсли ЕСТЬ перитонит или свободный воздух → сразу экстренная лапаротомия (без ожидания КТ!).",
+          treatment: "Экстренная реваскуляризация (эмболэктомия / эндоваскулярный тромболизис) и резекция некротизированного участка кишки.",
+          complications: "Трансмуральный инфаркт кишечника, перфорация, септический шок, синдром короткой кишки.",
+          examTraps: "Метаболический лактат-ацидоз и перитонит — это ПОЗДНИЕ признаки (уже развился инфаркт кишки). Не ждите появления лактата или перитонита для постановки диагноза при классической картине «pain out of proportion»."
+        },
+        {
+          id: "gi-sbp",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Spontaneous Bacterial Peritonitis (SBP)",
+          presentation: "Пациент с циррозом печени и асцитом поступает с лихорадкой, диффузной болью в животе, болезненностью при пальпации ИЛИ просто с необъяснимым ухудшением печеночной энцефалопатии / функции почек (может протекать со стертой симптоматикой!).",
+          mechanism: "Транслокация кишечной флоры (чаще всего E. coli, Klebsiella pneumoniae, Streptococcus) через отечную стенку кишки в асцитическую жидкость со сниженной опсонизирующей активностью (низкий белок асцита < 1.5 g/dL).",
+          diagnostics: "• Diagnostic Paracentesis (обязателен до начала антибиотиков!): диагноз подтверждается при уровне полиморфноядерных лейкоцитов (PMNs / Neutrophils) ≥ 250 cells/mm³ в асцитической жидкости.\n• SAAG ≥ 1.1 g/dL подтверждает портальную гипертензию.",
+          nextBestStep: "Выполнить диагностический парацентез (Diagnostic paracentesis) немедленно у любого госпитализированного пациента с циррозом и асцитом (особенно при лихорадке, боли или энцефалопатии), а сразу после забора жидкости при PMN ≥ 250 — начать эмпирический IV Ceftriaxone.",
+          treatment: "1) IV Third-generation cephalosporin (Cefotaxime или Ceftriaxone).\n2) IV Albumin (в 1-й и 3-й день) — доказанно снижает риск гепаторенального синдрома (HRS) и смертность.\n3) Вторичная пожизненная профилактика после перенесенного эпизода: Norfloxacin, Ciprofloxacin или TMP-SMX.",
+          complications: "Гепаторенальный синдром (HRS type 1), прогрессирование печеночной энцефалопатии, септический шок.",
+          examTraps: "Ловушка 1: Ждать результатов посева (culture) асцитической жидкости. Лечение начинают сразу при PMN ≥ 250/mm³!\nЛовушка 2: Если в асцитической жидкости высевается полимикробная флора + очень высокий белок и LDH + низкая глюкоза — думайте о ВТОРИЧНОМ бактериальном перитоните (перфорация полого органа), а не о SBP."
+        },
+        {
+          id: "gi-achalasia",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Achalasia",
+          presentation: "Прогрессирующая дисфагия ОДНОВРЕМЕННО на твердую и жидкую пищу (dysphagia to both solids and liquids from the onset), регургитация непереваренной пищи (особенно ночью на подушке), загрудинная боль и умеренная потеря веса.",
+          mechanism: "Дегенерация тормозных нейронов (NO и VIP-продуцирующих) ауэрбахова (myenteric) сплетения пищевода → неспособность нижнего пищеводного сфинктера (LES) расслабляться при глотании + отсутствие нормальной перистальтики тела пищевода.\nПервичная (идиопатическая) или вторичная (болезнь Шагаса — Trypanosoma cruzi в Южной Америке).",
+          diagnostics: "• Best Initial Test (при классической моторной дисфагии): Barium esophagram — расширенный пищевод с сужением в виде «клюва птицы» («bird-beak» appearance) на уровне LES.\n• Most Accurate / Confirmatory Test: High-resolution esophageal manometry (неполная релаксация LES + аперистальтика тела пищевода).\n• EGD обязательна для исключения псевдоахалазии (аденокарцинома кардии/GEJ).",
+          nextBestStep: "Если есть дисфагия на твердую и жидкую пищу → Barium swallow или EGD (для исключения рака у пациентов старше 50 лет с быстрой потерей веса), затем подтверждение через Esophageal manometry.",
+          treatment: "Наиболее эффективные методы: Laparoscopic Heller myotomy или Pneumatic balloon dilation. Для пациентов с высоким хирургическим риском — эндоскопическое введение ботулотоксина (Botulinum toxin injection) в LES или нитраты/блокаторы кальциевых каналов.",
+          complications: "Аспирационная пневмония, эзофагит, значительно повышенный риск плоскоклеточного рака пищевода (Squamous cell carcinoma).",
+          examTraps: "Псевдоахалазия (Pseudoachalasia): пожилой пациент (> 60 лет) с коротким анамнезом (< 6 мес) и быстрой выраженной потерей веса — на барии тоже может быть «bird-beak», но причина — опухоль гастроэзофагеального перехода, поэтому всегда требуется EGD."
+        }
+      ],
+
+      comparisons: [
+        {
+          id: "comp-biliary",
+          title: "1. Патологии билиарного тракта (Biliary Tract Pathologies)",
+          entities: ["Biliary Colic", "Acute Cholecystitis", "Choledocholithiasis", "Acute Cholangitis"],
+          shared: "Боль в правом верхнем квадранте живота (RUQ pain) или эпигастрии, часто связанная с приемом жирной пищи (холецистокинин вызывает сокращение желчного пузыря), наличие желчных камней по данным анамнеза или УЗИ.",
+          columns: ["Признак / Критерий", "Biliary Colic", "Acute Cholecystitis", "Choledocholithiasis", "Acute Cholangitis"],
+          rows: [
+            ["Локализация камня и патогенез", "Транзиторная закупорка шейки пузыря / cystic duct", "Стойкая обструкция cystic duct + воспаление стенки", "Камень в общем желчном протоке (CBD)", "Обструкция CBD + восходящая бактериальная инфекция"],
+            ["Длительность боли и лихорадка", "Боль < 4–6 часов, проходит сама. Нет лихорадки.", "Боль > 6 часов, постоянная + Лихорадка + Симптом Мерфи (+)", "Боли волнообразные или постоянные, БЕЗ лихорадки", "Лихорадка/озноб + RUQ боль + Желтуха (Charcot triad)"],
+            ["Лабораторные данные (WBC, Bilirubin, ALP)", "Все анализы в норме (Normal WBC, Normal LFTs)", "↑ WBC (лейкоцитоз), нормальные Bilirubin и ALP", "Нормальный WBC, ↑↑ Direct Bilirubin и ↑↑ ALP", "↑↑ WBC, ↑↑ Direct Bilirubin, ↑↑ ALP, возможен сепсис"],
+            ["УЗИ (RUQ Ultrasound)", "Камни в пузыре, стенка тонкая, CBD не расширен", "Камни + утолщение стенки (>4 мм), перихолецистическая жидкость", "Расширение CBD (> 6–8 мм), визуализация камня в протоке", "Билиарная дилатация (CBD > 6–8 мм) + клиника инфекции"],
+            ["Next Best Step / Лечение", "Анальгетики (NSAIDs) + плановая холецистэктомия", "IV fluids, антибиотики + холецистэктомия в первые 24–72 ч", "ERCP для удаления камня → затем плановая холецистэктомия", "IV fluids + IV антибиотики + экстренная декомпрессия через ERCP"]
+          ],
+          clincher: "Разводим по 2 осям: 1) Есть ли воспаление (Лихорадка + ↑ WBC)? 2) Есть ли обструкция общего желчного протока (Желтуха + ↑ Bilirubin/ALP + дилатация CBD)?",
+          trap: "Назначить HIDA scan при Choledocholithiasis (HIDA проверяет проходимость cystic duct, а при камне в CBD с билирубином > 4 нужен ERCP или MRCP)."
+        },
+        {
+          id: "comp-ibd",
+          title: "2. Воспалительные заболевания кишечника (Crohn Disease vs Ulcerative Colitis)",
+          entities: ["Crohn Disease (Болезнь Крона)", "Ulcerative Colitis (Язвенный колит)"],
+          shared: "Хроническое рецидивирующее воспаление ЖКТ, диарея, потеря веса, внекишечные проявления (артрит, узловатая эритема, гангренозная пиодермия, увеит).",
+          columns: ["Признак / Критерий", "Crohn Disease", "Ulcerative Colitis"],
+          rows: [
+            ["Локализация поражения", "От полости рта до ануса (чаще всего терминальный илеит); прямая кишка часто не тронута (rectal sparing), характерны «skip lesions».", "Только толстая кишка: всегда начинается с прямой кишки (rectum always involved) и идет непрерывно проксимально."],
+            ["Глубина воспаления и гистология", "Трансмуральное воспаление (Transmural) → неказеозные гранулемы (Noncaseating granulomas), «булыжная мостовая» (cobblestoning), creeping fat.", "Только слизистая и подслизистая (Mucosal & submucosal) → крипт-абсцессы (Crypt abscesses), псевдополипы."],
+            ["Характер стула и симптомы", "Водянистая диарея (кровь реже), боль в RLQ (напоминает аппендицит), перианальные свищи, абсцессы, афтозные язвы во рту.", "Частая кровавая диарея со слизью (Bloody diarrhea), тенезмы, боль в LLQ."],
+            ["Специфические осложнения", "Стриктуры («string sign»), кишечные и перианальные свищи (fistulas), мальабсорбция B12 и желчных кислот → оксалатные камни в почках и желчные камни.", "Токсический мегаколон (Toxic megacolon), первичный склерозирующий холангит (PSC — ↑ ALP, p-ANCA), высокий риск колоректального рака."],
+            ["Влияние курения", "Курение УХУДШАЕТ течение и повышает риск рецидивов.", "Курение парадоксально снижает риск (часто дебют после отказа от курения)."]
+          ],
+          clincher: "Перианальные фистулы, поражение подвздошной кишки, прерывистый характер (skip lesions) и гранулемы = Crohn Disease. Непрерывный проктит/колит с крипт-абсцессами и PSC = Ulcerative Colitis.",
+          trap: "Проводить колоноскопию пациенту с ЯК на фоне клиники Toxic Megacolon (лихорадка, тахикардия, вздутие, поперечная ободочная кишка > 6 см на рентгене) — колоноскопия вызовет перфорацию!"
+        },
+        {
+          id: "comp-esophageal",
+          title: "3. Разрывы и нарушения моторики пищевода (Mallory-Weiss vs Boerhaave & Motility)",
+          entities: ["Mallory-Weiss Tear", "Boerhaave Syndrome", "Achalasia", "Diffuse Esophageal Spasm (DES)"],
+          shared: "Поражение пищевода, загрудинная/эпигастральная симптоматика, связь со рвотой или нарушением глотания.",
+          columns: ["Диагноз", "Ключевой механизм и глубина", "Типичная клиника", "Диагностический клинчер", "Ведение (Management)"],
+          rows: [
+            ["Mallory-Weiss Tear", "Продольный надрыв ТОЛЬКО слизистой и подслизистой (Mucosal/submucosal tear) в зоне GEJ.", "Рвота с кровью (hematemesis) после многократных позывов. Нет боли в груди, нет подкожной эмфиземы.", "EGD подтверждает поверхностный линейный надрыв (проводится при продолжающемся кровотечении).", "В большинстве случаев останавливается спонтанно; при активном кровотечении — эндоскопический гемостаз (epinephrine / clips)."],
+            ["Boerhaave Syndrome", "Трансмуральный разрыв (Full-thickness rupture) всех слоев дистального пищевода.", "Сильнейшая загрудинная боль, шок, подкожная эмфизема (crepitus), левосторонний плевральный выпот.", "Пневмомедиастинум на CXR; выход водорастворимого контраста (Gastrografin) за пределы пищевода.", "NPO, IV antibiotics, экстренная хирургическая операция (ушивание и дренирование средостения)."],
+            ["Achalasia", "Гибель ганглиозных клеток myenteric plexus → высокий тонус LES + отсутствие перистальтики.", "Хроническая дисфагия на твердую и жидкую пищу, ночная регургитация непереваренной пищи.", "Барий: «Bird-beak» sign. Манометрия: неполное расслабление LES + аперистальтика.", "Heller myotomy или Pneumatic balloon dilation (ботокс/нитраты у неоперабельных)."],
+            ["Diffuse Esophageal Spasm (DES)", "Некоординированные одновременные сокращения гладких мышц пищевода.", "Приступы сильной загрудинной боли (имитирует стенокардию, провоцируется холодным/горячим) + периодическая дисфагия.", "Барий: «Штопорообразный пищевод» («Corkscrew esophagus»). Манометрия: периодические высокоамплитудные одновременные сокращения при нормальном LES.", "Блокаторы кальциевых каналов (Diltiazem), нитраты или трициклические антидепрессанты."]
+          ],
+          clincher: "Рвота кровью со стабильной гемодинамикой и нормальным рентгеном грудной клетки = Mallory-Weiss. Рвота + жестокая боль в груди + крепитация на шее / плевральный выпот = Boerhaave.",
+          trap: "Дать пациенту с подозрением на Boerhaave выпить барий (вызовет медиастинит) или путать загрудинную боль при DES с инфарктом (нормальная ЭКГ и тропонин + связь с глотанием указывают на пищевод)."
+        }
+      ],
+
+      questions: [
+        {
+          id: "q-gi-1",
+          category: "Next Best Step",
+          specialty: "Gastroenterology & Hepatology",
+          title: "RUQ Pain, Fever, Jaundice & Hypotension",
+          stem: "A 68-year-old woman comes to the emergency department due to 24 hours of worsening right upper quadrant abdominal pain, fever, and chills. Her medical history is significant for asymptomatic cholelithiasis. Temperature is 39.2°C (102.6°F), blood pressure is 84/52 mm Hg, pulse is 118/min, and respirations are 22/min. She islethargic and oriented only to person. Scleral icterus is present, and abdominal examination shows marked right upper quadrant tenderness without rebound or guarding. Laboratory results show:\n• Leukocytes: 19,400/mm³\n• Total bilirubin: 5.8 mg/dL (Direct: 4.6 mg/dL)\n• Alkaline phosphatase: 410 U/L\n• AST: 92 U/L, ALT: 105 U/L\nRight upper quadrant ultrasound shows multiple gallstones and a common bile duct diameter of 11 mm. After initiating intravenous crystalloid resuscitation and broad-spectrum intravenous antibiotics, which of the following is the most appropriate next step in management?",
+          options: [
+            "Diagnostic peritoneal lavage",
+            "Emergent laparoscopic cholecystectomy",
+            "Endoscopic retrograde cholangiopancreatography (ERCP)",
+            "Hepatobiliary iminodiacetic acid (HIDA) scan",
+            "Contrast-enhanced CT scan of the abdomen"
+          ],
+          correctIndex: 2,
+          explanation: "У пациентки классическая Пентада Рейнольдса (Reynolds pentad: RUQ pain, fever, jaundice, hypotension, altered mental status) на фоне острого обструктивного гнойного холангита (Acute bacterial cholangitis), вызванного холедохолитиазом (CBD расширен до 11 мм при норме ≤ 6 мм). После начала инфузионной реанимации и внутривенных антибиотиков широкого спектра жизнесохраняющим шагом является срочная декомпрессия желчевыводящих путей с помощью ERCP (сфинктеротомия, экстракция камня и/или установка стента).",
+          distractors: [
+            "A (DPL): Применяется при тупой травме живота, не имеет роли при билиарном сепсисе.",
+            "B (Emergent laparoscopic cholecystectomy): Экстренная холецистэктомия на высоте септического шока при остром холангите сопряжена с крайне высокой смертностью и не устраняет обструкцию дистального отдела CBD так быстро и безопасно, как ERCP. Холецистэктомия проводится планово после разрешения холангита.",
+            "D (HIDA scan): Используется для диагностики острого холецистита при сомнительном УЗИ; здесь диагноз обструкции CBD уже доказан.",
+            "E (CT abdomen): Не нужна, так как УЗИ уже выявило расширение CBD до 11 мм, а задержка декомпрессии ухудшит прогноз."
+          ],
+          clue: "Пентада Рейнольдса (лихорадка + желтуха + боль в RUQ + гипотензия + энцефалопатия) + расширение CBD (11 мм) = Острый холангит.",
+          takeaway: "При остром холангите (Acute Cholangitis) алгоритм всегда: 1) IV fluids + IV broad-spectrum antibiotics → 2) Срочная билиарная декомпрессия через ERCP (а не экстренная холецистэктомия)."
+        },
+        {
+          id: "q-gi-2",
+          category: "Best Test",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Severe Chest Pain After Forceful Vomiting",
+          stem: "A 52-year-old man is brought to the emergency department 3 hours after the sudden onset of severe, retrosternal chest pain radiating to his back. Earlier this evening, he drank large amounts of alcohol and had several episodes of forceful retching and vomiting. Temperature is 38.1°C (100.6°F), blood pressure is 102/64 mm Hg, heart rate is 114/min, and respirations are 26/min. Physical examination reveals palpable crepitus over the suprasternal notch and decreased breath sounds at the left lung base. ECG shows sinus tachycardia without ST-segment changes. Chest radiograph shows widened mediastinum and a small left pleural effusion. Which of the following is the best test to confirm the diagnosis?",
+          options: [
+            "Barium esophagram",
+            "Contrast esophagram with water-soluble agent (Gastrografin)",
+            "Esophageal manometry",
+            "Flexible upper gastrointestinal endoscopy (EGD)",
+            "Thoracentesis for cytology"
+          ],
+          correctIndex: 1,
+          explanation: "У пациента классическая картина синдрома Бурхаве (Boerhaave syndrome) — трансмурального разрыва пищевода после форсированной рвоты. Ключевые признаки: загрудинная боль, подкожная эмфизема (crepitus на шее), расширение средостения и левосторонний плевральный выпот на рентгене. Золотым стандартом подтверждения перфорации является эзофагография с водорастворимым контрастом (Water-soluble contrast / Gastrografin) или КТ грудной клетки с водорастворимым пероральным контрастом, который демонстрирует экстравазацию контраста из пищевода в средостение.",
+          distractors: [
+            "A (Barium esophagram): Классическая ловушка USMLE! Барий противопоказан как первый контраст при подозрении на перфорацию пищевода, поскольку его выход в средостение вызывает тяжелый химический гранулематозный медиастинит.",
+            "C (Esophageal manometry): Плановый тест для диагностики моторных нарушений (ахалазия, DES), противопоказан при острой перфорации.",
+            "D (EGD): Инсуффляция воздуха при эндоскопии может увеличить дефект пищевода и усилить контаминацию средостения / вызвать напряженный пневмоторакс.",
+            "E (Thoracentesis): Хотя плевральная жидкость при синдроме Бурхаве имеет высокую амилазу и низкий pH (< 6.0), это не является основным методом визуализации дефекта."
+          ],
+          clue: "Форсированная рвота → острая боль в груди + надключичная крепитация (подкожная эмфизема) + левосторонний выпот.",
+          takeaway: "При подозрении на перфорацию пищевода (Boerhaave syndrome) для подтверждения используется водорастворимый контраст (Gastrografin), а НЕ барий."
+        },
+        {
+          id: "q-gi-3",
+          category: "Lab Interpretation",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Cirrhosis with Confusion and Ascitic Fluid Analysis",
+          stem: "A 57-year-old man with decompensated alcoholic cirrhosis is admitted to the hospital due to 2 days of progressive confusion and lethargy. He takes furosemide and spironolactone. Temperature is 37.9°C (100.2°F), blood pressure is 106/62 mm Hg, and pulse is 96/min. Physical examination shows scleral icterus, asterixis, and moderate shifting dullness in the abdomen with mild diffuse tenderness. Diagnostic paracentesis is performed, and ascitic fluid analysis shows:\n• Leukocytes: 620/mm³ (65% neutrophils)\n• Total protein: 1.1 g/dL\n• Albumin: 0.6 g/dL (Serum albumin: 2.8 g/dL)\n• Gram stain: No organisms seen\nWhich of the following is the most appropriate interpretation and immediate pharmacotherapy?",
+          options: [
+            "Peritoneal carcinomatosis; refer for oncology workup",
+            "Portal hypertension without infection; increase furosemide and spironolactone",
+            "Secondary bacterial peritonitis; obtain emergent surgical consultation",
+            "Spontaneous bacterial peritonitis; initiate intravenous ceftriaxone and albumin",
+            "Tuberculous peritonitis; wait for ascitic fluid mycobacterial culture"
+          ],
+          correctIndex: 3,
+          explanation: "Рассчитаем показатели асцитической жидкости:\n1) SAAG (Serum-Ascites Albumin Gradient) = 2.8 − 0.6 = 2.2 g/dL (≥ 1.1 g/dL указывает на портальную гипертензию).\n2) Абсолютное число полиморфноядерных лейкоцитов (PMNs / Neutrophils) = 620 × 0.65 = 403 cells/mm³.\nПоскольку уровень PMN ≥ 250 cells/mm³, диагноз Spontaneous Bacterial Peritonitis (SBP) подтвержден — даже при отрицательной окраске по Граму! Немедленное лечение включает внутривенный цефалоспорин 3-го поколения (Ceftriaxone или Cefotaxime) ПЛЮС инфузию альбумина (снижает риск гепаторенального синдрома и летальность).",
+          distractors: [
+            "A (Peritoneal carcinomatosis): Дает SAAG < 1.1 g/dL, высокий общий белок (> 2.5 g/dL) и преобладание лимфоцитов.",
+            "B (No infection): Ошибочно ориентироваться на отрицательный Gram stain (он отрицателен у большинства пациентов с SBP из-за низкой концентрации бактерий). Критерий диагноза — PMN ≥ 250/mm³.",
+            "C (Secondary bacterial peritonitis): Характеризуется тысячами нейтрофилов, общим белком > 1 g/dL, очень низким уровнем глюкозы (< 50 mg/dL) и полимикробным ростом.",
+            "E (Tuberculous peritonitis): Дает лимфоцитарный асцит с SAAG < 1.1 g/dL."
+          ],
+          clue: "Цирроз + энцефалопатия + PMN в асците 403/mm³ (620 × 65% ≥ 250/mm³) и SAAG = 2.2 (≥ 1.1).",
+          takeaway: "PMN ≥ 250/mm³ в асцитической жидкости = диагноз SBP. Не ждите результатов посева или положительного Gram stain — сразу назначайте IV Ceftriaxone + IV Albumin."
+        },
+        {
+          id: "q-gi-4",
+          category: "Diagnosis",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Severe Abdominal Pain After Myocardial Infarction",
+          stem: "A 74-year-old man hospitalized 4 days ago for an anterior ST-elevation myocardial infarction suddenly develops severe, diffuse periumbilical abdominal pain. He has had two episodes of nonbloody vomiting. Blood pressure is 118/74 mm Hg, pulse is 108/min and irregularly irregular, and respirations are 22/min. On examination, the patient is writhing in bed in extreme distress, but his abdomen is soft with only mild diffuse tenderness and no rebound or guarding. Bowel sounds are hypoactive. Rectal examination shows brown, guaiac-positive stool. Laboratory results show:\n• Leukocytes: 18,200/mm³\n• Hemoglobin: 15.8 g/dL\n• Serum lactate: 4.1 mmol/L (normal: 0.5–2.2)\nWhich of the following is the most likely diagnosis?",
+          options: [
+            "Acute acalculous cholecystitis",
+            "Acute mesenteric ischemia",
+            "Ischemic colitis of the splenic flexure",
+            "Peptic ulcer perforation",
+            "Ruptured abdominal aortic aneurysm"
+          ],
+          correctIndex: 1,
+          explanation: "У пациента классическая виньетка острой мезентериальной ишемии (Acute mesenteric ischemia) вследствие артериальной эмболии в верхнюю брыжеечную артерию (SMA). Факторы риска в условии: недавний передний инфаркт миокарда (пристеночный тромб левого желудочка) и фибрилляция предсердий (irregularly irregular pulse). Решающий признак (Clincher): жесточайшая боль в животе, при которой пациент мечется в постели, но живот остается мягким без перитонеальных знаков («pain out of proportion to physical examination»), в сочетании с лейкоцитозом и лактат-ацидозом.",
+          distractors: [
+            "A (Acalculous cholecystitis): Встречается у тяжелых реанимационных пациентов, но дает локальную болезненность в RUQ и холестаз.",
+            "C (Ischemic colitis): Обычно возникает в «водораздельных» зонах (splenic flexure) на фоне гипоперфузии и проявляется умеренной болью в LLQ и отхождением ярко-красной крови (hematochezia), а не катастрофической болью в околопупочной области.",
+            "D (Peptic ulcer perforation): Вызывает мгновенный химический перитонит с «доскообразным» животом (rigid abdomen, rebound tenderness), когда пациент боится пошевелиться.",
+            "E (Ruptured AAA): Проявляется триадой гипотензии, пульсирующего образования в животе и боли в спине/фланке с падением гемоглобина."
+          ],
+          clue: "Недавний ИМ + фибрилляция предсердий + «pain out of proportion to physical exam» + высокий лактат.",
+          takeaway: "Острая боль в животе, не соответствующая мягкому животу при пальпации, у кардиологического пациента = Acute Mesenteric Ischemia (обычно эмболия SMA)."
+        },
+        {
+          id: "q-gi-5",
+          category: "Diagnosis",
+          specialty: "Gastroenterology & Hepatology",
+          title: "Progressive Dysphagia to Solids and Liquids",
+          stem: "A 38-year-old woman comes to the clinic with a 10-month history of progressive difficulty swallowing both solid food and liquids. She frequently regurgitates undigested food at night, which causes coughing spells when she lies flat, and she has lost 3.5 kg (7.7 lb) over this period. She does not smoke or drink alcohol, and she has no history of heartburn, Raynaud phenomenon, or skin tightening. Physical examination is unremarkable. A barium esophagram shows a dilated esophagus with smooth, symmetric tapering at the gastroesophageal junction. Esophageal manometry shows absent peristalsis in the distal esophageal body and incomplete relaxation of the lower esophageal sphincter with elevated resting pressure. Loss of which of the following is the primary mechanism of this patient's disorder?",
+          options: [
+            "Autoimmune destruction of smooth muscle fibers in the lower esophagus",
+            "Chronic acid-induced metaplasia of the distal esophageal epithelium",
+            "Inhibitory ganglion cells in the myenteric (Auerbach) plexus",
+            "Motor neurons in the nucleus ambiguus",
+            "Striated muscle fibers of the cricopharyngeus muscle"
+          ],
+          correctIndex: 2,
+          explanation: "У пациентки первичная ахалазия кардии (Achalasia): дисфагия одновременно на твердую и жидкую пищу, ночная регургитация непереваренной пищи, симптом «птичьего клюва» (smooth tapering at the GEJ) на бариевой эзофагограмме и характерная триада на манометрии (аперистальтика + неполная релаксация LES + повышенный базальный тонус LES). Патогенез связан с дегенерацией тормозных ганглиозных нейронов (выделяющих оксид азота NO и VIP) в миэнтеральном (Ауэрбаховом) сплетении стенки пищевода.",
+          distractors: [
+            "A (Smooth muscle atrophy/fibrosis): Это механизм поражения пищевода при системной склеродермии (Scleroderma esophagus), где тонус LES, наоборот, резко СНИЖЕН, что приводит к тяжелому ГЭРБ и феномену Рейно.",
+            "B (Acid-induced metaplasia): Механизм пищевода Барретта и пептических стриктур (дают дисфагию сначала только на твердую пищу и длительный анамнез изжоги).",
+            "D (Nucleus ambiguus): Вызывает орофарингеальную (высокую) дисфагию с поперхиванием и назальной регургитацией в момент начала глотка.",
+            "E (Cricopharyngeus dysfunction): Ведет к формированию дивертикула Ценкера в верхнем пищеводном сфинктере."
+          ],
+          clue: "Дисфагия на твердую + жидкую пищу + «bird-beak» на барии + высокое давление и отсутствие релаксации LES на манометрии.",
+          takeaway: "Ахалазия обусловлена потерей тормозных (NO/VIP) нейронов в myenteric (Auerbach) plexus → спазм LES и аперистальтика."
+        }
+      ]
+    };
+
+    /* =========================================================================
+       2. СОСТОЯНИЕ И LOCALSTORAGE
+       ========================================================================= */
+    const STORAGE_KEYS = {
+      LEARNED_PATHOLOGIES: "usmle_step2_learned_pathologies",
+      FAVORITE_PATHOLOGIES: "usmle_step2_fav_pathologies",
+      QBANK_ANSWERS: "usmle_step2_qbank_answers",
+      CUSTOM_DATA: "usmle_step2_custom_data"
+    };
+
+    let state = {
+      selectedSpecialty: "Gastroenterology & Hepatology",
+      learnedIds: JSON.parse(localStorage.getItem(STORAGE_KEYS.LEARNED_PATHOLOGIES) || "[]"),
+      favoriteIds: JSON.parse(localStorage.getItem(STORAGE_KEYS.FAVORITE_PATHOLOGIES) || "[]"),
+      qbankAnswers: JSON.parse(localStorage.getItem(STORAGE_KEYS.QBANK_ANSWERS) || "{}"),
+      customData: JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOM_DATA) || '{"pathologies":[],"comparisons":[],"questions":[]}')
+    };
+
+    function getAllPathologies() {
+      return [...DEFAULT_DATA.pathologies, ...(state.customData.pathologies || [])];
+    }
+
+    function getAllComparisons() {
+      return [...DEFAULT_DATA.comparisons, ...(state.customData.comparisons || [])];
+    }
+
+    function getAllQuestions() {
+      return [...DEFAULT_DATA.questions, ...(state.customData.questions || [])];
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEYS.LEARNED_PATHOLOGIES, JSON.stringify(state.learnedIds));
+      localStorage.setItem(STORAGE_KEYS.FAVORITE_PATHOLOGIES, JSON.stringify(state.favoriteIds));
+      localStorage.setItem(STORAGE_KEYS.QBANK_ANSWERS, JSON.stringify(state.qbankAnswers));
+      localStorage.setItem(STORAGE_KEYS.CUSTOM_DATA, JSON.stringify(state.customData));
+      updateGlobalStats();
+    }
+
+    function updateGlobalStats() {
+      const totalPath = getAllPathologies().length;
+      const learnedCount = state.learnedIds.length;
+      const allQ = getAllQuestions();
+      const answeredIds = Object.keys(state.qbankAnswers);
+      let correctCount = 0;
+      answeredIds.forEach(qId => {
+        const q = allQ.find(item => item.id === qId);
+        if (q && state.qbankAnswers[qId] === q.correctIndex) correctCount++;
+      });
+      document.getElementById("globalStatsPill").textContent =
+        `Изучено: ${learnedCount}/${totalPath} | Вопросы: ${correctCount}/${allQ.length} верно`;
+    }
+
+    /* =========================================================================
+       3. НАВИГАЦИЯ ПО ВКЛАДКАМ
+       ========================================================================= */
+    function switchTab(tabId, btnEl) {
+      document.querySelectorAll(".tab-section").forEach(sec => sec.classList.remove("active"));
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+      document.getElementById("tab-" + tabId).classList.add("active");
+      if (btnEl) btnEl.classList.add("active");
+    }
+
+    /* =========================================================================
+       4. РЕНДЕР ВКЛАДКИ 1: АЛГОРИТМ МЫШЛЕНИЯ
+       ========================================================================= */
+    function renderAlgorithmTab() {
+      const stepsContainer = document.getElementById("algoStepsContainer");
+      stepsContainer.innerHTML = DEFAULT_DATA.algorithmSteps.map(item => `
+        <div class="algo-step">
+          <div class="algo-step-header">
+            <span class="algo-step-title">${escapeHtml(item.step)}</span>
+            <span class="badge">${escapeHtml(item.tag)}</span>
+          </div>
+          <div class="algo-step-body">
+            <p>${escapeHtml(item.content)}</p>
+            ${item.bullets ? `<ul>${item.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join("")}</ul>` : ""}
+          </div>
+        </div>
+      `).join("");
+
+      const emergContainer = document.getElementById("emergencyRulesContainer");
+      emergContainer.innerHTML = DEFAULT_DATA.emergencyRules.map(item => `
+        <div class="emergency-item">
+          <strong>⚡ ${escapeHtml(item.title)}</strong>
+          <div>${escapeHtml(item.rule)}</div>
+        </div>
+      `).join("");
+
+      const qTable = document.getElementById("questionTypesTable");
+      qTable.innerHTML = `
+        <thead>
+          <tr>
+            <th style="width:22%;">Тип вопроса USMLE</th>
+            <th style="width:28%;">Что именно спрашивают</th>
+            <th>Алгоритм выбора правильного ответа</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${DEFAULT_DATA.questionTypes.map(qt => `
+            <tr>
+              <td><strong>${escapeHtml(qt.type)}</strong></td>
+              <td>${escapeHtml(qt.meaning)}</td>
+              <td>${escapeHtml(qt.strategy)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      `;
+    }
+
+    /* =========================================================================
+       5. РЕНДЕР ВКЛАДКИ 2: СПЕЦИАЛЬНОСТИ И ПАТОЛОГИИ
+       ========================================================================= */
+    function renderSpecialtyPills() {
+      const allPath = getAllPathologies();
+      const container = document.getElementById("specialtyPills");
+      const allCount = allPath.length;
+
+      let html = `
+        <button class="pill-btn ${state.selectedSpecialty === 'ALL' ? 'active' : ''}" onclick="selectSpecialty('ALL')">
+          Все специальности (${allCount})
+        </button>
+      `;
+
+      DEFAULT_DATA.specialties.forEach(spec => {
+        const count = allPath.filter(p => p.specialty === spec).length;
+        const activeClass = state.selectedSpecialty === spec ? "active" : "";
+        html += `
+          <button class="pill-btn ${activeClass}" onclick="selectSpecialty('${escapeHtml(spec)}')">
+            ${escapeHtml(spec)} (${count})
+          </button>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function selectSpecialty(spec) {
+      state.selectedSpecialty = spec;
+      renderSpecialtyPills();
+      renderPathologies();
+    }
+
+    function toggleLearned(id) {
+      const idx = state.learnedIds.indexOf(id);
+      if (idx === -1) state.learnedIds.push(id);
+      else state.learnedIds.splice(idx, 1);
+      saveState();
+      renderPathologies();
+    }
+
+    function toggleFavorite(id) {
+      const idx = state.favoriteIds.indexOf(id);
+      if (idx === -1) state.favoriteIds.push(id);
+      else state.favoriteIds.splice(idx, 1);
+      saveState();
+      renderPathologies();
+    }
+
+    function renderPathologies() {
+      const searchQuery = document.getElementById("pathologySearch").value.trim().toLowerCase();
+      const statusFilter = document.getElementById("pathologyStatusFilter").value;
+      const container = document.getElementById("pathologiesContainer");
+
+      const filtered = getAllPathologies().filter(item => {
+        if (state.selectedSpecialty !== "ALL" && item.specialty !== state.selectedSpecialty) return false;
+        const isLearned = state.learnedIds.includes(item.id);
+        const isFav = state.favoriteIds.includes(item.id);
+        if (statusFilter === "learned" && !isLearned) return false;
+        if (statusFilter === "unlearned" && isLearned) return false;
+        if (statusFilter === "favorite" && !isFav) return false;
+
+        if (searchQuery) {
+          const haystack = [
+            item.title, item.specialty, item.presentation,
+            item.mechanism, item.diagnostics, item.nextBestStep,
+            item.treatment, item.complications, item.examTraps
+          ].join(" ").toLowerCase();
+          if (!haystack.includes(searchQuery)) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="card" style="text-align:center; color:var(--text-muted);">
+            По выбранным фильтрам карточек пока нет. Вы можете переключить специальность или нажать <strong>«+ Добавить данные / JSON шаблоны»</strong>, чтобы добавить новую патологию.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const isLearned = state.learnedIds.includes(item.id);
+        const isFav = state.favoriteIds.includes(item.id);
+        return `
+          <article class="pathology-card ${isLearned ? 'learned' : ''}">
+            <div class="pathology-header">
+              <div class="pathology-title-group">
+                <h3>${escapeHtml(item.title)}</h3>
+                <span class="badge">${escapeHtml(item.specialty)}</span>
+                ${isLearned ? '<span class="badge badge-success" style="margin-left:6px;">✓ Изучено</span>' : ''}
+              </div>
+              <div class="pathology-actions">
+                <button class="btn btn-sm" onclick="toggleFavorite('${escapeHtml(item.id)}')" title="В избранное">
+                  ${isFav ? '★ Избранное' : '☆ В избранное'}
+                </button>
+                <button class="btn btn-sm ${isLearned ? '' : 'btn-primary'}" onclick="toggleLearned('${escapeHtml(item.id)}')">
+                  ${isLearned ? 'Снять отметку' : 'Отметить изученным'}
+                </button>
+              </div>
+            </div>
+            <div class="pathology-body">
+              <div class="info-block">
+                <span class="info-block-label">Типичная клиническая картина (Presentation)</span>
+                <div>${formatMultiline(item.presentation)}</div>
+              </div>
+              <div class="info-block">
+                <span class="info-block-label">Механизм / Патогенез (Mechanism)</span>
+                <div>${formatMultiline(item.mechanism)}</div>
+              </div>
+              <div class="info-block">
+                <span class="info-block-label">Диагностика и Лаборатория (Diagnostics & Labs)</span>
+                <div>${formatMultiline(item.diagnostics)}</div>
+              </div>
+              <div class="info-block highlight-step">
+                <span class="info-block-label">⚡ Следующий шаг (Next Best Step)</span>
+                <div>${formatMultiline(item.nextBestStep)}</div>
+              </div>
+              <div class="info-block">
+                <span class="info-block-label">Лечение (Definitive Treatment)</span>
+                <div>${formatMultiline(item.treatment)}</div>
+              </div>
+              <div class="info-block">
+                <span class="info-block-label">Осложнения (Complications)</span>
+                <div>${formatMultiline(item.complications)}</div>
+              </div>
+              <div class="info-block highlight-trap" style="grid-column: 1 / -1;">
+                <span class="info-block-label">⚠️ Экзаменационные ловушки (USMLE Exam Traps)</span>
+                <div>${formatMultiline(item.examTraps)}</div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    /* =========================================================================
+       6. РЕНДЕР ВКЛАДКИ 3: СРАВНЕНИЕ ДИАГНОЗОВ
+       ========================================================================= */
+    function renderComparisons() {
+      const query = document.getElementById("comparisonSearch").value.trim().toLowerCase();
+      const container = document.getElementById("comparisonsContainer");
+
+      const list = getAllComparisons().filter(comp => {
+        if (!query) return true;
+        const text = [
+          comp.title,
+          (comp.entities || []).join(" "),
+          comp.shared,
+          comp.clincher,
+          comp.trap,
+          JSON.stringify(comp.rows)
+        ].join(" ").toLowerCase();
+        return text.includes(query);
+      });
+
+      if (list.length === 0) {
+        container.innerHTML = `<div class="card" style="text-align:center; color:var(--text-muted);">Ничего не найдено.</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(comp => `
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; margin-bottom:10px;">
+            <h3 style="font-size:17px;">${escapeHtml(comp.title)}</h3>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              ${(comp.entities || []).map(e => `<span class="badge">${escapeHtml(e)}</span>`).join("")}
+            </div>
+          </div>
+
+          <div class="info-block" style="margin-bottom:12px;">
+            <span class="info-block-label">Общие признаки (Shared Features)</span>
+            <div>${escapeHtml(comp.shared)}</div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  ${(comp.columns || []).map(col => `<th>${escapeHtml(col)}</th>`).join("")}
+                </tr>
+              </thead>
+              <tbody>
+                ${(comp.rows || []).map(row => `
+                  <tr>
+                    ${row.map((cell, idx) => idx === 0 ? `<td><strong>${escapeHtml(cell)}</strong></td>` : `<td>${escapeHtml(cell)}</td>`).join("")}
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="comp-meta">
+            <div class="info-block highlight-step">
+              <span class="info-block-label">🎯 Решающий признак (Clincher / Decisive Feature)</span>
+              <div>${escapeHtml(comp.clincher)}</div>
+            </div>
+            <div class="info-block highlight-trap">
+              <span class="info-block-label">⚠️ Типичная ошибка на экзамене (Common Exam Trap)</span>
+              <div>${escapeHtml(comp.trap)}</div>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    /* =========================================================================
+       7. РЕНДЕР ВКЛАДКИ 4: ПРАКТИКА ВОПРОСОВ (QBANK)
+       ========================================================================= */
+    function answerQuestion(qId, optionIndex) {
+      state.qbankAnswers[qId] = optionIndex;
+      saveState();
+      renderQuestions();
+    }
+
+    function resetSingleQuestion(qId) {
+      delete state.qbankAnswers[qId];
+      saveState();
+      renderQuestions();
+    }
+
+    function resetQBankProgress() {
+      state.qbankAnswers = {};
+      saveState();
+      renderQuestions();
+      showToast("Прогресс ответов сброшен");
+    }
+
+    function renderQuestions() {
+      const catFilter = document.getElementById("qCategoryFilter").value;
+      const statusFilter = document.getElementById("qStatusFilter").value;
+      const query = document.getElementById("qSearchInput").value.trim().toLowerCase();
+      const container = document.getElementById("questionsContainer");
+
+      const filtered = getAllQuestions().filter(q => {
+        if (catFilter !== "all" && q.category !== catFilter) return false;
+        const userAns = state.qbankAnswers[q.id];
+        const isAnswered = userAns !== undefined;
+        const isCorrect = isAnswered && userAns === q.correctIndex;
+
+        if (statusFilter === "unanswered" && isAnswered) return false;
+        if (statusFilter === "correct" && !isCorrect) return false;
+        if (statusFilter === "incorrect" && (!isAnswered || isCorrect)) return false;
+
+        if (query) {
+          const text = [q.title, q.stem, q.explanation, q.takeaway, q.category].join(" ").toLowerCase();
+          if (!text.includes(query)) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="card" style="text-align:center; color:var(--text-muted);">Нет вопросов по выбранным фильтрам.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map((q, idx) => {
+        const userAns = state.qbankAnswers[q.id];
+        const isAnswered = userAns !== undefined;
+        const isCorrect = isAnswered && userAns === q.correctIndex;
+        const letters = ["A", "B", "C", "D", "E", "F"];
+
+        return `
+          <div class="q-card">
+            <div class="q-meta">
+              <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <strong>Вопрос #${idx + 1}: ${escapeHtml(q.title)}</strong>
+                <span class="badge">${escapeHtml(q.category)}</span>
+                <span class="badge" style="background:var(--surface-alt); color:var(--text-muted); border-color:var(--border);">${escapeHtml(q.specialty)}</span>
+              </div>
+              ${isAnswered ? `
+                <button class="btn btn-sm" onclick="resetSingleQuestion('${escapeHtml(q.id)}')">Решить заново</button>
+              ` : ''}
+            </div>
+
+            <div class="q-stem">${formatMultiline(q.stem)}</div>
+
+            <div class="q-options">
+              ${q.options.map((opt, optIdx) => {
+                let optClass = "";
+                if (isAnswered) {
+                  if (optIdx === q.correctIndex) optClass = "correct";
+                  else if (optIdx === userAns) optClass = "wrong";
+                }
+                return `
+                  <button class="q-option ${optClass}" ${isAnswered ? "disabled" : ""} onclick="answerQuestion('${escapeHtml(q.id)}', ${optIdx})">
+                    <strong>${letters[optIdx]}.</strong>
+                    <span>${escapeHtml(opt)}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+
+            ${isAnswered ? `
+              <div class="q-explanation">
+                <h4 style="color:${isCorrect ? 'var(--success)' : 'var(--danger)'};">
+                  ${isCorrect ? '✓ Верно!' : `✗ Неверно. Правильный ответ: ${letters[q.correctIndex]} (${escapeHtml(q.options[q.correctIndex])})`}
+                </h4>
+                <p style="margin-bottom:10px;"><strong>Объяснение:</strong> ${formatMultiline(q.explanation)}</p>
+
+                ${q.distractors && q.distractors.length ? `
+                  <div style="margin-bottom:10px;">
+                    <strong>Почему остальные варианты хуже:</strong>
+                    <ul class="distractor-list">
+                      ${q.distractors.map(d => `<li>${escapeHtml(d)}</li>`).join("")}
+                    </ul>
+                  </div>
+                ` : ''}
+
+                <div class="comp-meta">
+                  <div class="info-block highlight-step">
+                    <span class="info-block-label">🔑 Ключевая подсказка из условия (Clinical Clue)</span>
+                    <div>${escapeHtml(q.clue)}</div>
+                  </div>
+                  <div class="info-block highlight-trap">
+                    <span class="info-block-label">📌 Правило на будущее (Educational Objective)</span>
+                    <div>${escapeHtml(q.takeaway)}</div>
+                  </div>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join("");
+    }
+
+    /* =========================================================================
+       8. ШАБЛОНЫ JSON И ДОБАВЛЕНИЕ НОВЫХ ЗАПИСЕЙ БЕЗ ПЕРЕДЕЛКИ КОДА
+       ========================================================================= */
+    const JSON_TEMPLATES = {
+      pathology: {
+        id: "gi-custom-" + Date.now(),
+        specialty: "Gastroenterology & Hepatology",
+        title: "Название диагноза (например, Hepatic Encephalopathy)",
+        presentation: "Ключевые симптомы, анамнез и физикальные находки (например, confusion, asterixis, cirrhosis).",
+        mechanism: "Краткий патогенез (накопление NH3 и нейротоксинов из-за портосистемного шунтирования).",
+        diagnostics: "• Labs: ...\n• Best Initial Test: ...\n• Confirmatory Test: ...",
+        nextBestStep: "Поиск и устранение триггера (GI bleed, SBP, гипокалиемия, седативные) + Lactulose.",
+        treatment: "Lactulose (поддержка 2–3 мягких стулов в день) + Rifaximin.",
+        complications: "Отек мозга, аспирационная пневмония, кома.",
+        examTraps: "Не ограничивать белок в рационе пациентам с циррозом и не ориентироваться только на уровень венозного аммиака."
+      },
+      comparison: {
+        id: "comp-custom-" + Date.now(),
+        title: "Название сравнительной таблицы",
+        entities: ["Диагноз А", "Диагноз Б"],
+        shared: "Общие симптомы, с которыми приходят оба пациента.",
+        columns: ["Признак", "Диагноз А", "Диагноз Б"],
+        rows: [
+          ["Патогенез", "Описание А", "Описание Б"],
+          ["Клиника", "Описание А", "Описание Б"],
+          ["Диагностика", "Тест А", "Тест Б"],
+          ["Лечение", "Терапия А", "Терапия Б"]
+        ],
+        clincher: "Решающий клинический или лабораторный признак, который однозначно разводит эти два состояния.",
+        trap: "Типичная ошибка на экзамене USMLE Step 2 CK."
+      },
+      question: {
+        id: "q-custom-" + Date.now(),
+        category: "Next Best Step",
+        specialty: "Gastroenterology & Hepatology",
+        title: "Краткая тема вопроса",
+        stem: "Клиническая виньетка на английском в стиле USMLE Step 2 CK...",
+        options: [
+          "Option A",
+          "Option B",
+          "Option C",
+          "Option D",
+          "Option E"
+        ],
+        correctIndex: 0,
+        explanation: "Подробное объяснение правильного ответа.",
+        distractors: [
+          "B: Почему не подходит B",
+          "C: Почему не подходит C"
+        ],
+        clue: "Ключевая зацепка в условии задачи.",
+        takeaway: "Короткое правило для запоминания."
+      }
+    };
+
+    function openDataModal(defaultType = "pathology") {
+      document.getElementById("jsonTargetType").value = defaultType;
+      loadTemplate(defaultType);
+      document.getElementById("dataModal").classList.add("open");
+    }
+
+    function closeDataModal() {
+      document.getElementById("dataModal").classList.remove("open");
+    }
+
+    function loadTemplate(type) {
+      document.getElementById("jsonTargetType").value = type;
+      const templateObj = JSON.parse(JSON.stringify(JSON_TEMPLATES[type]));
+      templateObj.id = type.slice(0, 4) + "-" + Math.floor(Math.random() * 90000 + 10000);
+      document.getElementById("jsonInputArea").value = JSON.stringify(templateObj, null, 2);
+    }
+
+    function copyCurrentTextarea() {
+      const textarea = document.getElementById("jsonInputArea");
+      textarea.select();
+      document.execCommand("copy");
+      showToast("JSON скопирован в буфер обмена");
+    }
+
+    function addCustomJsonEntry() {
+      const type = document.getElementById("jsonTargetType").value;
+      const rawText = document.getElementById("jsonInputArea").value.trim();
+      try {
+        const parsed = JSON.parse(rawText);
+        const items = Array.isArray(parsed) ? parsed : [parsed];
+
+        items.forEach(item => {
+          if (!item.id) item.id = type + "-" + Date.now() + "-" + Math.random().toString(36).slice(2, 6);
+          if (type === "pathology") {
+            state.customData.pathologies.push(item);
+          } else if (type === "comparison") {
+            state.customData.comparisons.push(item);
+          } else if (type === "question") {
+            state.customData.questions.push(item);
+          }
+        });
+
+        saveState();
+        renderSpecialtyPills();
+        renderPathologies();
+        renderComparisons();
+        renderQuestions();
+        closeDataModal();
+        showToast(`Успешно добавлено записей: ${items.length}`);
+      } catch (err) {
+        showToast("Ошибка синтаксиса JSON: проверьте запятые и кавычки");
+      }
+    }
+
+    function clearCustomAdditions() {
+      state.customData = { pathologies: [], comparisons: [], questions: [] };
+      saveState();
+      renderSpecialtyPills();
+      renderPathologies();
+      renderComparisons();
+      renderQuestions();
+      closeDataModal();
+      showToast("Пользовательские записи очищены, оставлена базовая база");
+    }
+
+    function exportFullDatabase() {
+      const fullExport = {
+        pathologies: getAllPathologies(),
+        comparisons: getAllComparisons(),
+        questions: getAllQuestions()
+      };
+      const blob = new Blob([JSON.stringify(fullExport, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "usmle_step2_database.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    /* =========================================================================
+       9. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+       ========================================================================= */
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function formatMultiline(str) {
+      return escapeHtml(str).replace(/\n/g, "<br>");
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById("toastMsg");
+      el.textContent = msg;
+      el.style.display = "block";
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        el.style.display = "none";
+      }, 2800);
+    }
+
+    /* Инициализация при загрузке */
+    window.addEventListener("DOMContentLoaded", () => {
+      renderAlgorithmTab();
+      renderSpecialtyPills();
+      renderPathologies();
+      renderComparisons();
+      renderQuestions();
+      updateGlobalStats();
+    });
+  </script>
+</body>
+</html>
